@@ -1,0 +1,28 @@
+#!/bin/python
+import bmemcached
+import logging
+#logging.basicConfig(level=logging.DEBUG)
+client = bmemcached.Client('127.0.0.1:2041',username=None, password=None, socket_timeout=10000)
+print client.set('key', 'value')
+print client.set('key1', 'value1')
+print client.set('key2', 'value2')
+print client.set('key3', 'value3')
+print client.set('key4', 'value4')
+print client.set('key5', 'value5')
+print client.set('key6', 'value6')
+print client.set('key7', 'value7')
+print client.set('key8', 'value8')
+print client.get('key')
+print client.get('key1')
+print client.get('key2')
+print client.get('key3')
+print client.get('key4')
+print client.get('key5')
+print client.get('key6')
+print client.get('key7')
+print client.get('key8')
+print client.get('key9')
+print client.get('key10')
+print client.get('key11')
+print client.disconnect_all()
+

@@ -1,0 +1,59 @@
+README
+
+Running Intruction :
+    The source code consist of following directory structure
+    <ROOT>---
+            |--> src
+            |--> inc
+            |--> test
+            |--> bin
+             --> obj
+             
+    - All Source files are in src directory
+    - All header files are in inc directory
+    - All compiled object files are generated in obj directory
+    - Exectuable "memcached" is  created in bin directory
+    - Makefile is in <ROOT> directory    
+    
+To compile
+$ make
+
+To enable compilation logs use V=1
+$ make V=1
+
+To Permanently remove the logging statements from code
+$ make TRACE_LEVEL=0
+Trace level can be set to 0-4, from No logs to all debug logs
+Once Removed these logs can't be enabled
+
+
+To run the executable
+$ ./bin/memcached      
+
+following parameters can be passed
+             
+-h                      : Print help this message 
+-V                      : Print Version
+-v                      : verbose ( can be used multiple times), default = warn
+                          -v    = ( error only )
+                          -vv   = ( error and warning )
+                          -vvv  = ( error, warning and information )
+                          -vvvv = ( error, warnings, information and debug)
+                          
+                          
+-u                      : Use UDP for Comunication (default : disabled)
+-p port                 : port, default 5000
+-k key_len              : Max Key Length in request or response message, default, 128
+-l val_len              : Max Value Length in request or response message, default, 128
+-t thread count         : Parallel Threads in Thread Pool, default, 1
+-H Hash size            : Hash Size of hashtable, default, 256
+
+Press Control + C ( SIGINT ) to stop the server
+
+Testing 
+A Test script rand_test.py is placed in test directory it can be used as follows
+$ python test/rand_test.py <Number of Tests> <Port>
+If no Port is given then 5000 is used as default port
+If No arguments given then 100000 is used as test number 
+
+    
